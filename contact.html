@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<title>联系我们</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+        function checkinfo(){
+            if(checkuname()&&checkage()&&checkemail()&&checkaddress()){
+                alert('恭喜注册成功');
+                window.location.href = 'manage/main.html';
+            }
+        }
+
+        function checkuname(){
+            uname = document.getElementsByName('fName')[0].value
+            if(uname == ''){
+                errMsg = '<font style="color:red;">用户名不能为空</font>';
+                document.getElementById('fNameMsg').innerHTML = errMsg;
+                return false;
+            }else{
+                return true;
+            }
+        }
+		function checkage(){
+            age = document.getElementsByName('age')[0].valueAsNumber
+            if(isNaN(age)){
+                errMsg = '<font style="color:red;">年龄不能为空</font>';
+                document.getElementById('ageMsg').innerHTML = errMsg;
+                return false;
+            }
+			if(age<=0||age>=150){
+                errMsg = '<font style="color:red;">年龄超出范围</font>';
+                document.getElementById('ageMsg').innerHTML = errMsg;
+                return false;
+            }else{
+                return true;
+            }
+        }
+		function checkaddress(){
+            uname = document.getElementsByName('address')[0].value
+            if(uname == ''){
+                errMsg = '<font style="color:red;">地址不能为空</font>';
+                document.getElementById('addressMsg').innerHTML = errMsg;
+                return false;
+            }else{
+                return true;
+            }
+        }
+		function checkemail(){
+			email = document.getElementsByName('email')[0].value
+            if(email == ''){
+				errMsg = '<font style="color:red;">邮箱不能为空</font>';
+                document.getElementById('emailMsg').innerHTML = errMsg;
+				return false;
+			}
+
+            if(email.indexOf('@') == -1 || !email.endsWith('.com')){
+				errMsg = '<font style="color:red;">邮箱格式错误</font>';
+                document.getElementById('emailMsg').innerHTML = errMsg;
+                return false;
+            }
+			else{
+				return true;
+			}
+        }
+        function clearMsg(mid){
+            document.getElementById(mid).innerHTML = '';
+        }
+    </script>
+</head>
+<body>
+
+	<div id="container">
+	
+
+	<header>
+		<a href="index.html"><img src="images/hplogo.jpg" alt="Harry Potter Logo"></a>
+	</header><br>
+
+
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="charactor.html">Charactor</a></li>
+			<li><a href="newmovie.html">New Movie</a></li>
+			<li><a href="jkrowling.html">Author</a></li>
+			<li><a href="contact.html">Registration</a></li>
+		</ul>
+		
+	</nav>
+	
+
+	<main>
+		<h2>准备好前往霍格沃茨，开启魔法之旅了吗?</h2>
+		<h2>填写以下表单以便猫头鹰为您派送录取通知书</h2>
+		
+		<div id="form">
+			<label for="fName"><font color="white">您的姓名:</font></label>
+			<input type="text"  name="fName" onblur="checkuname()" onfocus="clearMsg('fNameMsg')" placeholder="请输入您的姓名">
+			<div id="fNameMsg" class="error"></div>
+			<br>
+			<label for="age"><font color="white">您的年龄:</font></label>
+			<input type="number" name="age" onblur="checkage()" onfocus="clearMsg('ageMsg')" placeholder="请输入您的年龄">
+			<div id="ageMsg"  class="error"></div>
+			<br>
+			<label for="address"><font color="white">地址:</font></label>
+			<input type="text" name="address"onblur="checkaddress()" onfocus="clearMsg('addressMsg')"  placeholder="请输入您的地址">	
+			<div id="addressMsg"  class="error"></div>
+			<br>
+			<label for="email"><font color="white">邮箱:</font></label>
+			<input type="text" name="email" onblur="checkemail()" onfocus="clearMsg('emailMsg')" placeholder="请输入您的邮箱">
+			<div id="emailMsg"  class="error"></div>	
+			<br>
+			<label><font color="white"><a href="https://www.wizardingworld.com/sorting-hat">期望学院：</a></font></label><br />
+			<ul>
+				<label><li><input type="radio" name="school" value="grin" class="chkbx"><font color="white">格兰芬多</font></li></label>
+				<li><input type="radio" name="school" value="slid" class="chkbx"><font color="white">斯莱特林</font></li>
+				<label><li><input type="radio" name="school" value="ravn" class="chkbx"><font color="white">拉文克劳</font></li></label>
+				<li><input type="radio" name="school" value="hupl" class="chkbx"><font color="white">赫奇帕奇</font></li>
+			</ul>
+			<br>
+			<label for="questions"><font color="white">您的疑问?</font></label>
+			<textarea id="questions" name="questions" rows="3" cols="25" placeholder="没有可直接提交"></textarea>
+			<input type="submit" value="注册" onclick="checkinfo();" class="btn">
+        </div>
+		
+		<p>我们位于:<br>
+		霍格沃茨,<br>
+		苏格兰高地, 英国</p>
+				
+		<p>邮件地址 :</p>
+		<p>HarryPotter@harrypotter.com</p>
+		<br><br>
+		
+	</main>
+
+	<footer>
+		<!-- 社交媒体链接 -->
+		<div id="social">
+			<p>
+				联系我们:</p>
+			<p><a href="http://weibo.com/xjtuofficial/profile?s=6cm7D0&sudaref=widget.weibo.com"><img src="images/weibo.png" ></a>
+			<a href="https://www.xjtu.edu.cn/"><img src="images/wechat.png"></a></p>
+		</div>
+		
+		AKURA VIC<br>
+		
+		<!-- 下载链接 -->
+		<div>
+		<a href="media/hp.mp4" download>下载本页视频</a><br>
+		<a href="media/hpthsong.mp3" download>下载本页音频</a>
+		</div>
+
+	</footer>
+	</div>
+
+</body>
+</html>
