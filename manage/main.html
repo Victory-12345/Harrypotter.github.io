@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.x.js"></script>
+<script type="text/javascript" src="js/tableOperator.js"></script>
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+  <ul class="placeul">
+    <li><a href="..\index.html">home</a></li>
+    <li>后台管理</li>
+  </ul>
+  <div class="date_text">
+    <img src="images/5.png"class="img">&nbsp;今天是哈利波特出生第16066天
+  </div>
+</div>
+<div class="rightinfo">
+  <div class="tools">
+    <ul class="toolbar">
+      <li ><span><img src="images/2.png" class="img"/></span>添加</li>
+      <li ><span><img src="images/6.png"class="img" /></span>修改</li>
+      <li class="click"><span><img src="images/3.png"class="img" /></span>删除</li>
+      <li><span><img src="images/8.png"class="img" /></span>统计</li>
+      <li><span><img src="images/9.png" class="img"/></span>设置</li>
+    </ul>
+  </div>
+<table class="tablelist">
+<thead>
+  <tr>
+    <th><input name="checkAll" type="checkbox" id="checkAll" onchange="selectAll()"/>全选/
+    <input name="checkOther" type="checkbox" id="checkOther" onchange="selectOther()"/>反选
+    </th>
+    <th>学生照片</th>
+    <th>学生姓名</th>
+    <th>学院</th>
+    <th>年龄</th>
+    <th>性别</th>
+    <th>O.W.L.考试成绩</th>
+    <th>是否入学</th>
+    <th>操作</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><input name="checkItem" type="checkbox" value="" /></td>
+    <td class="imgtd"><img src="..\images\harry.jpg" class="img2"/></td>
+    <td>哈利·波特</td>
+    <td>格兰芬多</td>
+    <td>17</td>
+    <td>男</td>
+    <td>7个O.W.L.，天文学、保护神奇动物、魔咒学、黑魔法防御术（唯一的优秀）、草药学、魔药学、变形学</td>
+    <td>已入学</td>
+    <td><a href="#" class="tablelink">查看</a> 
+        <a href="#" class="tablelink"> 删除</a></td>
+  </tr>
+  <tr class="odd">
+    <td><input name="checkItem" type="checkbox" value="" /></td>
+    <td class="imgtd"><img src="..\images\hermione.jpeg" class="img2"/></td>
+    <td>赫敏·格兰杰</td>
+    <td>格兰芬多</td>
+    <td>17</td>
+    <td>女</td>
+    <td>10个O.W.L.,9个优秀,一个良好（黑魔法防御课），占卜学和麻瓜研究未参加考试</td>
+    <td>已入学</td>
+    <td><a href="#" class="tablelink">查看</a> 
+        <a href="#" class="tablelink">删除</a></td>
+  </tr>
+  <tr>
+    <td><input name="checkItem" type="checkbox" value="" /></td>
+    <td class="imgtd"><img src="..\images\ron.jpg" class="img2"/></td>
+    <td>罗恩·韦斯莱 </td>
+    <td>格兰芬多</td>
+    <td>17</td>
+    <td>男</td>
+    <td>7个O.W.L.，天文学、保护神奇动物、魔咒学、黑魔法防御术、草药学、魔药学、变形学</td>
+    <td>已入学</td>
+    <td><a href="#" class="tablelink">查看</a> 
+        <a href="#" class="tablelink">删除</a></td>
+  </tr>
+  <tr class="odd">
+    <td><input name="checkItem" type="checkbox" value="" /></td>
+    <td class="imgtd"><img src="..\images\tom.jpg" class="img2"/></td>
+    <td>汤姆·里德尔</td>
+    <td>斯莱特林</td>
+    <td>25</td>
+    <td>男</td>
+    <td>12个O.W.L.</td>
+    <td>已退学</td>
+    <td><a href="#" class="tablelink">查看</a> 
+        <a href="#" class="tablelink">删除</a></td>
+  </tr>
+</tbody>
+</table>
+<script type="text/javascript">
+//全选或全不选
+function selectAll(){
+    var items=document.getElementsByName("checkItem");
+    var checkAll=document.getElementById("checkAll");
+    var checkOther=document.getElementById("checkOther");
+    checkOther.checked=false;
+    for(var i=0;i<items.length;i++){
+        items[i].checked=checkAll.checked;
+    }
+}
+//反选
+function selectOther(){
+    var items=document.getElementsByName("checkItem");
+    var checkAll=document.getElementById("checkAll");
+    var checkOther=document.getElementById("checkOther");
+    checkAll.checked=false;
+    for(var i=0;i<items.length;i++){
+        items[i].checked=!items[i].checked;
+    }		
+}
+</script>
+<script type="text/javascript" src="js/jquery-1.x.js"></script>
+<script type="text/javascript">
+function selectAll(){
+	var items=$("[name='checkItem']");
+	var checkAll=$("#checkAll");
+	$("#checkOther").prop("checked",false);
+	for(var i=0;i<items.length;i++){
+		$(items[i]).prop("checked",checkAll.prop("checked"));
+	}	
+}
+function selectOther(){
+	var items=$("[name='checkItem']");
+	$("#checkAll").prop("checked",false);
+	for(var i=0;i<items.length;i++){
+		$(items[i]).prop("checked",!$(items[i]).prop("checked"));
+	}	
+}
+</script>
+  <div class="pagin">
+    <div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+    <ul class="paginList">
+      <li class="paginItem"><a href="#"><span class="pagepre"></span></a></li>
+      <li class="paginItem"><a href="#">1</a></li>
+      <li class="paginItem current"><a href="#">2</a></li>
+      <li class="paginItem"><a href="#">3</a></li>
+      <li class="paginItem"><a href="#">4</a></li>
+      <li class="paginItem"><a href="#">5</a></li>
+      <li class="paginItem more"><a href="#">...</a></li>
+      <li class="paginItem"><a href="#">10</a></li>
+      <li class="paginItem"><a href="#"><span class="pagenxt"></span></a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
